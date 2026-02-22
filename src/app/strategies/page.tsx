@@ -11,7 +11,7 @@ import {
 import type { LLMAnalysis } from '@/types';
 
 const STRATEGY_COLORS = {
-  avalanche: '#059669',
+  avalanche: '#dc2626',
   snowball: '#0284c7',
   hybrid: '#d97706',
 };
@@ -98,7 +98,7 @@ export default function StrategiesPage() {
               type="number"
               value={extraPayment}
               onChange={(e) => setExtraPayment(Math.max(0, parseInt(e.target.value) || 0))}
-              className="w-24 rounded-lg border border-gray-300 px-3 py-1.5 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+              className="w-24 rounded-lg border border-gray-300 px-3 py-1.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
             />
           </div>
         </div>
@@ -113,12 +113,12 @@ export default function StrategiesPage() {
             className={cn(
               'text-left rounded-xl border-2 p-5 transition-all hover:shadow-md',
               (selectedStrategy || plans[0]?.strategy) === plan.strategy
-                ? 'border-emerald-500 bg-emerald-50'
+                ? 'border-red-500 bg-red-50'
                 : 'border-gray-200 bg-white'
             )}
           >
             {index === 0 && (
-              <span className="inline-flex px-2 py-0.5 text-xs font-bold bg-emerald-600 text-white rounded-full mb-2">
+              <span className="inline-flex px-2 py-0.5 text-xs font-bold bg-red-600 text-white rounded-full mb-2">
                 RECOMMENDED
               </span>
             )}
@@ -133,7 +133,7 @@ export default function StrategiesPage() {
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-gray-600">Interest Saved</span>
-                <span className="text-sm font-bold text-emerald-600">{formatCurrency(plan.interestSaved)}</span>
+                <span className="text-sm font-bold text-red-600">{formatCurrency(plan.interestSaved)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-gray-600">Months to Payoff</span>
@@ -207,7 +207,7 @@ export default function StrategiesPage() {
                           {detail && detail.remainingBalance > 0 ? (
                             <span className="text-gray-900">{formatCurrency(detail.remainingBalance)}</span>
                           ) : detail ? (
-                            <span className="text-emerald-600 font-medium">PAID OFF</span>
+                            <span className="text-red-600 font-medium">PAID OFF</span>
                           ) : (
                             <span className="text-gray-400">—</span>
                           )}
@@ -218,7 +218,7 @@ export default function StrategiesPage() {
                       {formatCurrency(month.totalPaid)}
                     </td>
                     <td className="px-3 py-2 text-sm font-medium text-right">
-                      <span className={month.totalBalance > 0 ? 'text-red-600' : 'text-emerald-600'}>
+                      <span className={month.totalBalance > 0 ? 'text-red-600' : 'text-red-600'}>
                         {formatCurrency(month.totalBalance)}
                       </span>
                     </td>
@@ -242,7 +242,7 @@ export default function StrategiesPage() {
           <button
             onClick={getAIAdvice}
             disabled={loadingAdvice}
-            className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 disabled:opacity-50 transition-colors"
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 disabled:opacity-50 transition-colors"
           >
             {loadingAdvice ? 'Analyzing...' : 'Get AI Advice'}
           </button>
@@ -257,11 +257,11 @@ export default function StrategiesPage() {
 
         {llmAdvice && (
           <div className="space-y-4">
-            <div className="bg-emerald-50 rounded-lg p-4">
-              <p className="text-sm font-semibold text-emerald-800">
+            <div className="bg-red-50 rounded-lg p-4">
+              <p className="text-sm font-semibold text-red-800">
                 Potential Monthly Savings: {formatCurrency(llmAdvice.monthlySavingsPotential)}
               </p>
-              <p className="text-sm text-emerald-700 mt-1">{llmAdvice.debtPayoffSuggestion}</p>
+              <p className="text-sm text-red-700 mt-1">{llmAdvice.debtPayoffSuggestion}</p>
             </div>
 
             <div>
@@ -294,7 +294,7 @@ export default function StrategiesPage() {
                         <span className="text-sm font-medium text-gray-900">{rec.description}</span>
                         <span className="text-sm text-gray-500"> — {rec.reason}</span>
                       </div>
-                      <span className="text-sm font-bold text-emerald-600">
+                      <span className="text-sm font-bold text-red-600">
                         +{formatCurrency(rec.potentialSaving)}/mo
                       </span>
                     </div>

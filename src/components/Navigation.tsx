@@ -21,7 +21,7 @@ export default function Navigation() {
         <div className="flex-1 flex flex-col min-h-0">
           <div className="flex items-center h-16 px-4 bg-gray-900">
             <div className="flex items-center gap-2">
-              <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-8 h-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span className="text-white font-bold text-lg">DebtFree</span>
@@ -38,12 +38,12 @@ export default function Navigation() {
                     className={cn(
                       'group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors',
                       isActive
-                        ? 'bg-gray-800 text-emerald-400'
+                        ? 'bg-gray-800 text-red-400'
                         : 'text-gray-300 hover:bg-gray-800 hover:text-white'
                     )}
                   >
                     <svg
-                      className={cn('mr-3 h-5 w-5', isActive ? 'text-emerald-400' : 'text-gray-400 group-hover:text-gray-300')}
+                      className={cn('mr-3 h-5 w-5', isActive ? 'text-red-400' : 'text-gray-400 group-hover:text-gray-300')}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -65,7 +65,7 @@ export default function Navigation() {
               <div className="flex items-center">
                 <div className="ml-1">
                   <p className="text-xs text-gray-400">Powered by AI</p>
-                  <p className="text-xs text-emerald-400 font-medium group-hover:text-emerald-300">
+                  <p className="text-xs text-red-400 font-medium group-hover:text-red-300">
                     Smart Expense Analysis
                   </p>
                 </div>
@@ -86,7 +86,7 @@ export default function Navigation() {
                 href={item.href}
                 className={cn(
                   'flex flex-col items-center px-3 py-1 text-xs',
-                  isActive ? 'text-emerald-400' : 'text-gray-400'
+                  isActive ? 'text-red-400' : 'text-gray-400'
                 )}
               >
                 <svg

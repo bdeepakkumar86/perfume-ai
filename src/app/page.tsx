@@ -12,7 +12,7 @@ import {
   PieChart, Pie, Cell, BarChart, Bar, Legend,
 } from 'recharts';
 
-const CHART_COLORS = ['#059669', '#0284c7', '#d97706', '#dc2626', '#7c3aed', '#ec4899'];
+const CHART_COLORS = ['#dc2626', '#0284c7', '#d97706', '#7c3aed', '#ec4899', '#059669'];
 
 export default function Dashboard() {
   const [debts, setDebts] = useState<Debt[]>([]);
@@ -96,7 +96,7 @@ export default function Dashboard() {
         <button
           onClick={runAnalysis}
           disabled={analyzing || (expenses.length === 0 && debts.length === 0)}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -118,7 +118,7 @@ export default function Dashboard() {
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/debts"
-              className="inline-flex items-center px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700"
+              className="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700"
             >
               Add Your Debts
             </Link>
@@ -143,7 +143,7 @@ export default function Dashboard() {
               label="Interest Saved"
               value={bestPlan ? formatCurrency(bestPlan.interestSaved) : '$0'}
               subtitle={bestPlan ? `with ${STRATEGY_LABELS[bestPlan.strategy]}` : undefined}
-              color="emerald"
+              color="red"
               trend="up"
             />
           </div>
@@ -151,7 +151,7 @@ export default function Dashboard() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <StatCard label="Monthly Expenses" value={formatCurrency(monthlyExpenses)} color="gray" />
             <StatCard label="Recurring Expenses" value={formatCurrency(recurringExpenses)} color="amber" />
-            <StatCard label="Debt-Free In" value={bestPlan ? `${bestPlan.monthsToPayoff} mo` : 'N/A'} color="emerald" />
+            <StatCard label="Debt-Free In" value={bestPlan ? `${bestPlan.monthsToPayoff} mo` : 'N/A'} color="red" />
             <StatCard label="Total Debts" value={String(debts.length)} color="blue" />
           </div>
         </>
@@ -180,7 +180,7 @@ export default function Dashboard() {
                 <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
                 <Tooltip formatter={(value) => formatCurrency(Number(value))} />
-                <Area type="monotone" dataKey="balance" stroke="#059669" fill="#d1fae5" strokeWidth={2} />
+                <Area type="monotone" dataKey="balance" stroke="#dc2626" fill="#fee2e2" strokeWidth={2} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -234,21 +234,21 @@ export default function Dashboard() {
 
       {/* AI Analysis Results */}
       {analysis && (
-        <div className="bg-white rounded-xl border border-emerald-200 p-6 space-y-5">
+        <div className="bg-white rounded-xl border border-red-200 p-6 space-y-5">
           <div className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
             </svg>
             <h2 className="text-lg font-semibold text-gray-900">AI Analysis</h2>
           </div>
 
           {/* Monthly savings potential */}
-          <div className="bg-emerald-50 rounded-lg p-4">
-            <p className="text-sm text-emerald-800">
+          <div className="bg-red-50 rounded-lg p-4">
+            <p className="text-sm text-red-800">
               <span className="font-bold">Potential Monthly Savings: </span>
               {formatCurrency(analysis.monthlySavingsPotential)}
             </p>
-            <p className="text-sm text-emerald-700 mt-1">{analysis.debtPayoffSuggestion}</p>
+            <p className="text-sm text-red-700 mt-1">{analysis.debtPayoffSuggestion}</p>
           </div>
 
           {/* Priority actions */}
@@ -285,7 +285,7 @@ export default function Dashboard() {
                       </p>
                       <p className="text-xs text-gray-500 mt-0.5">{rec.reason}</p>
                       {rec.potentialSaving > 0 && (
-                        <p className="text-xs text-emerald-600 font-medium mt-0.5">
+                        <p className="text-xs text-red-600 font-medium mt-0.5">
                           Save {formatCurrency(rec.potentialSaving)}/month
                         </p>
                       )}

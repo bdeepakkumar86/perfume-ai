@@ -93,7 +93,7 @@ export default function ExpensesPage() {
           </button>
           <button
             onClick={() => { setEditingExpense(undefined); setShowForm(true); }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
@@ -119,7 +119,7 @@ export default function ExpensesPage() {
           <select
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
-            className="rounded-lg border border-gray-300 px-3 py-1.5 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="rounded-lg border border-gray-300 px-3 py-1.5 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
           >
             <option value="all">All Categories</option>
             {Object.entries(EXPENSE_CATEGORY_LABELS).map(([value, label]) => (
@@ -186,7 +186,7 @@ export default function ExpensesPage() {
                       <div className="flex gap-1 justify-end">
                         <button
                           onClick={() => handleEdit(expense)}
-                          className="p-1 text-gray-400 hover:text-emerald-600 transition-colors"
+                          className="p-1 text-gray-400 hover:text-red-600 transition-colors"
                           title="Edit"
                         >
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

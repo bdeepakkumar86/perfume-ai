@@ -47,7 +47,7 @@ export default function ExpenseForm({ onSave, onCancel, initialData }: ExpenseFo
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="e.g., Netflix Subscription"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
             required
           />
         </div>
@@ -61,7 +61,7 @@ export default function ExpenseForm({ onSave, onCancel, initialData }: ExpenseFo
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="15.99"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
             required
           />
         </div>
@@ -71,7 +71,7 @@ export default function ExpenseForm({ onSave, onCancel, initialData }: ExpenseFo
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value as ExpenseCategory)}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
           >
             {Object.entries(EXPENSE_CATEGORY_LABELS).map(([value, label]) => (
               <option key={value} value={value}>{label}</option>
@@ -85,7 +85,7 @@ export default function ExpenseForm({ onSave, onCancel, initialData }: ExpenseFo
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
             required
           />
         </div>
@@ -96,7 +96,7 @@ export default function ExpenseForm({ onSave, onCancel, initialData }: ExpenseFo
               type="checkbox"
               checked={isRecurring}
               onChange={(e) => setIsRecurring(e.target.checked)}
-              className="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
+              className="h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500"
             />
             <span className="text-sm font-medium text-gray-700">Recurring expense</span>
           </label>
@@ -106,7 +106,7 @@ export default function ExpenseForm({ onSave, onCancel, initialData }: ExpenseFo
       <div className="flex gap-3 pt-2">
         <button
           type="submit"
-          className="px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition-colors"
+          className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
         >
           {initialData ? 'Update Expense' : 'Add Expense'}
         </button>

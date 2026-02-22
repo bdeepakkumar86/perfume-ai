@@ -5,11 +5,10 @@ interface StatCardProps {
   value: string;
   subtitle?: string;
   trend?: 'up' | 'down' | 'neutral';
-  color?: 'emerald' | 'red' | 'blue' | 'amber' | 'gray';
+  color?: 'red' | 'blue' | 'amber' | 'gray';
 }
 
 const colorMap = {
-  emerald: 'bg-emerald-50 border-emerald-200',
   red: 'bg-red-50 border-red-200',
   blue: 'bg-blue-50 border-blue-200',
   amber: 'bg-amber-50 border-amber-200',
@@ -17,7 +16,6 @@ const colorMap = {
 };
 
 const valueColorMap = {
-  emerald: 'text-emerald-700',
   red: 'text-red-700',
   blue: 'text-blue-700',
   amber: 'text-amber-700',
@@ -33,7 +31,7 @@ export default function StatCard({ label, value, subtitle, trend, color = 'gray'
       </p>
       {subtitle && (
         <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
-          {trend === 'up' && <span className="text-emerald-500">&#x25B2;</span>}
+          {trend === 'up' && <span className="text-red-500">&#x25B2;</span>}
           {trend === 'down' && <span className="text-red-500">&#x25BC;</span>}
           {subtitle}
         </p>

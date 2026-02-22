@@ -48,7 +48,7 @@ export default function DebtForm({ onSave, onCancel, initialData }: DebtFormProp
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g., Chase Visa Card"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
             required
           />
         </div>
@@ -58,7 +58,7 @@ export default function DebtForm({ onSave, onCancel, initialData }: DebtFormProp
           <select
             value={type}
             onChange={(e) => setType(e.target.value as Debt['type'])}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
           >
             {Object.entries(DEBT_TYPE_LABELS).map(([value, label]) => (
               <option key={value} value={value}>{label}</option>
@@ -75,7 +75,7 @@ export default function DebtForm({ onSave, onCancel, initialData }: DebtFormProp
             value={balance}
             onChange={(e) => setBalance(e.target.value)}
             placeholder="5000.00"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
             required
           />
         </div>
@@ -90,7 +90,7 @@ export default function DebtForm({ onSave, onCancel, initialData }: DebtFormProp
             value={interestRate}
             onChange={(e) => setInterestRate(e.target.value)}
             placeholder="24.99"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
             required
           />
         </div>
@@ -104,7 +104,7 @@ export default function DebtForm({ onSave, onCancel, initialData }: DebtFormProp
             value={minimumPayment}
             onChange={(e) => setMinimumPayment(e.target.value)}
             placeholder="100.00"
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
             required
           />
         </div>
@@ -117,7 +117,7 @@ export default function DebtForm({ onSave, onCancel, initialData }: DebtFormProp
             max="31"
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none"
             required
           />
         </div>
@@ -126,7 +126,7 @@ export default function DebtForm({ onSave, onCancel, initialData }: DebtFormProp
       <div className="flex gap-3 pt-2">
         <button
           type="submit"
-          className="px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition-colors"
+          className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
         >
           {initialData ? 'Update Debt' : 'Add Debt'}
         </button>
